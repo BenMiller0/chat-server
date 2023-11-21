@@ -82,15 +82,18 @@ class ChatHandler implements URLHandler {
               int character = codePoints[characterIndex];
               if (character == (int) '!') {
                 numberOfExclamationMarks += 1;
+		characterIndex++;
               }
-              if (new String(Character.toChars(character)).equals("😂")) {
+	      else if(new String(Character.toChars(character)).equals("😂")) {
                 analysis = " This message has a LOL vibe.";
+		characterIndex++;
               }
-              if (new String(Character.toChars(character)).equals("🥹")) {
+	      else if (new String(Character.toChars(character)).equals("🥹")) {
                 analysis = " This message has a awwww vibe.";
+		characterIndex++;
               } else {
-              characterIndex += 1;
-               }
+              characterIndex++;
+              }
             }
             if (numberOfExclamationMarks > 2) {
               analysis += " This message ends forcefully.";
